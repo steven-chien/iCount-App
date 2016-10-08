@@ -1,11 +1,25 @@
-##Readme## 
+#### Description
+This program is written in accordance to the assignment reqirement for HKPU COMP305 Assignment "iCountApp".
 
-Assignment 1 of HK PolyU COMP305, fall 2012
+#### Usage
+Compile the program by typing 'make' in src folder. The data file should be stored in the 'dat' folder. the compiled binary will be stored in 'bin' folder. The program is executed upon user's request and operate on data provided by user. The program is excuted in the following format:
+```bash
+		[user@locathost bin]$ ./main ../dat/(name of data file)
+```
 
-##Introduction##
+The data file supplied by user should contain string of words separated by space without symbols other than alphabats. The program will count the frequency of occurance of strings within the data file and report user the frequency. The output will be sorted according to frequency.
 
-This is the Assignment 1 for COMP305 Data Structure and Algorithm I of Hong Kong Polytechnic University, fall 2012. 
-The program read a list of words from a file and store them into a link list and count their use in the file then list the words in order of their frequency of use in the file.
+#### Explanation
+The program contains a number of functions as explained below:
+
+- cmp(struct, struct) and list_sort(struct) sort the linked list;
+- listSearch(char, struct) searches the lists to see if the words being searched is already included in the list. Pointer to the node is return is word found otherwise NULL is returned.
+- listCreate(struct) initialize the variables within a list given by user.
+- listAdd(char, struct) calls the listSearch() function to see if word is already in the list. If true increase the count otherwise create a new element and update the list size.
+- listPrint(struct) prints the linked list with words and word counts.
+- listDelete(struct) is used to free the list at the end of the program.
+
+The program reads strings from the file to a string buffer x which can contain maximum 50 characters which is reasonable to avoid infinitive long strings which can over load the program. After each successful read of string listAdd() is called to add word to the linked list of increase word count. When the whole file is read and the sort function is called to sort the linked list according word count. Finally listPrint() is called to print the final result.
 
 ##License##
 
